@@ -1484,14 +1484,14 @@
           <div class="price-amount">₹999</div>
           <div class="price-orig">Original: ₹3999</div>
           <div class="price-seats">Unlocks when early bird fills</div>
-          <button class="price-btn" style="opacity:.75" onclick="openModal('999')">Get ₹999 Seat →</button>
+          <button class="price-btn" style="opacity:.5;cursor:not-allowed" disabled>Unlocks when Early Bird fills</button>
         </div>
         <div class="price-card">
           <div class="price-tier">🔴 Last Batch — Seats 151–200</div>
           <div class="price-amount">₹1999</div>
           <div class="price-orig">Original: ₹3999</div>
           <div class="price-seats">Final seats before close</div>
-          <button class="price-btn" style="opacity:.6" onclick="openModal('1999')">Get ₹1999 Seat →</button>
+          <button class="price-btn" style="opacity:.4;cursor:not-allowed" disabled>Unlocks after Regular sells out</button>
         </div>
       </div>
       <div class="addon-card">
@@ -1926,10 +1926,8 @@
     /* ─── FORM SUBMISSION ─── */
     const APPS_SCRIPT_URL='YOUR_APPS_SCRIPT_URL';
     const RAZORPAY_LINKS={
-      '99':'YOUR_RAZORPAY_LINK',
-      '999':'REPLACE_WITH_RAZORPAY_LINK_999',
-      '1999':'REPLACE_WITH_RAZORPAY_LINK_1999',
-      'recording':'YOUR_RAZORPAY_LINK_VIP',
+      '99':'https://rzp.io/rzp/buildmyaiadscampaign',
+      'recording':'https://rzp.io/rzp/bmaac-vip',
     };
 
     /* ─── CHECKBOX → UPDATE CTA TEXT + CARD STATE ─── */
