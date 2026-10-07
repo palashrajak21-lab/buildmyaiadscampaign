@@ -649,6 +649,23 @@
     .curr-stages span{font-size:12px;font-weight:700;color:var(--light);background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.3);border-radius:50px;padding:6px 12px}
     @media(max-width:820px){.curr-grid{grid-template-columns:1fr}}
 
+    /* ═══ MINIMAL HERO ═══ */
+    .hero-meta{margin-bottom:20px}
+    .hero-meta .tag{font-size:11px;letter-spacing:.6px;text-transform:none}
+    .hero-ticks{list-style:none;display:inline-grid;gap:10px;text-align:left;margin:0 auto 28px;padding:0}
+    .hero-ticks li{position:relative;padding-left:28px;font-size:15px;font-weight:600;color:var(--light);line-height:1.45}
+    .hero-ticks li::before{content:'✓';position:absolute;left:0;top:0;color:var(--green);font-weight:900}
+    .ev-count{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 16px;max-width:420px;margin:0 auto 24px}
+    .ev-count h3{font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:12px}
+    .ev-boxes{gap:8px}
+    .ev-unit{gap:6px}
+    .ev-num{min-width:64px;font-size:28px;padding:8px 0;border-radius:10px}
+    .ev-sep{font-size:24px;padding-top:8px}
+    .ev-unit small{font-size:10px;letter-spacing:1.5px}
+    .below-cta{margin-top:0}
+    .trust-row{margin-top:0}
+    @media(max-width:640px){.ev-num{min-width:56px;font-size:24px}.ev-sep{font-size:20px}.ev-boxes{gap:5px}}
+
     /* ═══ MOBILE UI FIXES ═══ */
     .hero-cta-mobile{display:none}
     #modal-overlay.active ~ .wa-float{display:none}
@@ -685,7 +702,7 @@
 
   <!-- ═══ TOP BAR ═══ -->
   <div id="top-bar">
-    🔴 LIVE WORKSHOP — Sunday, 18th October 2026 &nbsp;·&nbsp; 11:00 AM – 1:00 PM IST &nbsp;·&nbsp; ⚡ Early Bird Seats Available at ₹99
+    ⚡ Early Bird Seats Available at ₹99
   </div>
 
   <!-- ═══ STICKY NAV ═══ -->
@@ -700,10 +717,7 @@
   <section id="hero">
     <div class="container">
       <div class="hero-meta">
-        <span class="tag">🗓️ 18th October 2026</span>
-        <span class="tag">⏰ 11 AM – 1 PM IST</span>
-        <span class="tag">💻 Live on Zoom</span>
-        <span class="tag">🇮🇳 Hindi + English</span>
+        <span class="tag">🗓️ Sun, 18 Oct · 11 AM – 1 PM IST · Zoom</span>
       </div>
 
       <h1 style="margin-bottom:20px">
@@ -735,32 +749,21 @@
         and Ready to Take Full Control of Their Growth.
       </p>
 
-      <div class="badges-row">
-        <div class="badge-item">✅ Even If You Don't Know Anything About Running Ads</div>
-        <div class="badge-item">🚀 Launch a Live Campaign Inside the Workshop</div>
-        <div class="badge-item">💰 110% Money-Back Guarantee</div>
-        <div class="badge-item">🎁 ₹21,998 Worth of Free Bonuses</div>
-        <div class="badge-item">👥 Private WhatsApp Community Access</div>
-      </div>
+      <ul class="hero-ticks">
+        <li>No ads experience needed</li>
+        <li>Launch a live campaign inside the workshop</li>
+        <li>110% money-back guarantee</li>
+      </ul>
 
   <!-- ═══ EVENT DETAILS + COUNTDOWN ═══ -->
-  <div class="ev-wrap">
-    <div class="ev-grid">
-      <div class="ev-card"><div class="ev-ico">📅</div><div><div class="ev-lab">Date</div><div class="ev-val">18th October 2026 (Sun)</div></div></div>
-      <div class="ev-card"><div class="ev-ico">🕐</div><div><div class="ev-lab">Time</div><div class="ev-val">11:00 AM IST</div></div></div>
-      <div class="ev-card"><div class="ev-ico">📍</div><div><div class="ev-lab">Where</div><div class="ev-val">On Zoom (Online)</div></div></div>
-      <div class="ev-card"><div class="ev-ico">🌐</div><div><div class="ev-lab">Language</div><div class="ev-val">Hindi + English</div></div></div>
-    </div>
-  </div>
   <div class="ev-count">
-    <h3>⚡ Workshop Starts In</h3>
+    <h3>Workshop Starts In</h3>
     <div class="ev-boxes">
       <div class="ev-unit"><div class="ev-num" id="ev-days">00</div><small>Days</small></div><div class="ev-sep">:</div>
       <div class="ev-unit"><div class="ev-num" id="ev-hours">00</div><small>Hours</small></div><div class="ev-sep">:</div>
       <div class="ev-unit"><div class="ev-num" id="ev-mins">00</div><small>Mins</small></div><div class="ev-sep">:</div>
       <div class="ev-unit"><div class="ev-num" id="ev-secs">00</div><small>Secs</small></div>
     </div>
-    <p class="ev-line">18th October 2026 (Sunday) &nbsp;·&nbsp; 11:00 AM IST &nbsp;·&nbsp; Live on Zoom</p>
   </div>
 
       <!-- PRIMARY CTA -->
@@ -768,16 +771,7 @@
         <button class="btn btn-pulse" onclick="openModal('99')">
           Secure My Seat → Only ₹99
         </button>
-        <p class="cta-sub">⚡ Early Bird Price — <strong>Limited seats only.</strong> Price goes to ₹999 when sold out.</p>
-      </div>
-
-      <!-- ── SEAT BAR ANIMATION ── -->
-      <div class="seat-blocks-wrap" style="margin:20px auto 0">
-        <div class="seat-label">🪑 SEATS FILLING UP — Filling Fast</div>
-        <div class="seat-bar">
-          <div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div><div class="pb-box"></div>
-        </div>
-        <p class="seat-warning">⚠️ Hurry! Seats For This Workshop Are Low</p>
+        <p class="cta-sub">Early bird price. Goes to ₹999 when seats fill.</p>
       </div>
 
       <!-- ── BELOW CTA — URGENCY ELEMENTS ── -->
@@ -809,18 +803,9 @@
           </div>
         </div>
 
-        <!-- Guarantee strip -->
-        <div class="guarantee-strip">
-          <span style="font-size:22px;flex-shrink:0">🛡️</span>
-          <span>If you don't get full clarity on running your own Meta ads using Claude — full ₹99 refund + ₹25 extra. Zero questions asked.</span>
-        </div>
-
         <!-- Trust logos -->
         <div class="trust-row">
           <div class="trust-item"><span class="trust-icon">🔒</span> Secured by Razorpay</div>
-          <div class="trust-item"><span class="trust-icon">✅</span> SSL Encrypted</div>
-          <div class="trust-item"><span class="trust-icon">👥</span> 100+ Coaches Helped</div>
-          <div class="trust-item"><span class="trust-icon">⭐</span> 4.9 / 5 Rating</div>
         </div>
 
       </div>
@@ -1551,7 +1536,7 @@
   <section id="final-cta">
     <div class="container">
       <h2>Stop Paying the Agency.<br/><span class="gold">Start Owning the Game.</span></h2>
-      <p class="sub">Join BuildMyAiAdsCampaign — the 2-hour live workshop where you go from agency-dependent to fully independent. Sunday, 18th October. Only 50 seats.</p>
+      <p class="sub">Join BuildMyAiAdsCampaign — the 2-hour live workshop where you go from agency-dependent to fully independent. Only 50 seats.</p>
       <button class="btn btn-pulse" onclick="openModal('99')">Secure My ₹99 Seat Now →</button>
       <p style="margin-top:16px;font-size:13px;color:var(--muted)">⚡ Early bird seats filling fast · Price goes to ₹999 when sold out</p>
     </div>
