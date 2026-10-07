@@ -6,7 +6,7 @@
   <title>You're In! 🎉 — BuildMyAiAdsCampaign Workshop</title>
   <meta name="robots" content="noindex, nofollow" />
 
-  <!-- Meta Pixel — PageView + Purchase (fired once from this thank-you page). -->
+  <!-- Meta Pixel — PageView on load. Purchase fires only after the payment is confirmed (script below). -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -15,16 +15,9 @@
     document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1654354802513090');
     fbq('track', 'PageView');
-    // Fire Purchase once per browser session (same as Build My App thank-you page)
-    try {
-      if (!sessionStorage.getItem('purchase_fired')) {
-        fbq('track', 'Purchase', { value: 99, currency: 'INR', content_name: 'BuildMyAiAdsCampaign Workshop - 18 Oct', content_type: 'product' });
-        sessionStorage.setItem('purchase_fired', '1');
-      }
-    } catch (e) {}
   </script>
   <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1654354802513090&ev=Purchase&cd[value]=99&cd[currency]=INR&noscript=1"/></noscript>
+    src="https://www.facebook.com/tr?id=1654354802513090&ev=PageView&noscript=1"/></noscript>
 
   <!-- Microsoft Clarity -->
 
@@ -394,23 +387,30 @@
       if(APPS_SCRIPT_URL.includes('REPLACE')) return;
       const raw = localStorage.getItem('pendingLead');
       if(!raw) return;
-      try {
-        const lead = JSON.parse(raw);
-        const p = new URLSearchParams(window.location.search);
-        lead.paymentStatus = 'Paid';
-        lead.razorpay_payment_id = p.get('razorpay_payment_id') || '';
-        lead.price = p.get('amount') || lead.price || '99';
-        lead.paidAt = new Date().toISOString();
-
-        /* sendBeacon — primary */
-        if (navigator.sendBeacon) { navigator.sendBeacon(APPS_SCRIPT_URL, JSON.stringify(lead)); }
-
-        /* GET pixel beacon — backup */
-        var gp = new URLSearchParams({ name: lead.name, email: lead.email, whatsapp: lead.whatsapp, price: lead.price, paidAt: lead.paidAt, status: 'paid', rzp: lead.razorpay_payment_id });
-        new Image().src = APPS_SCRIPT_URL + '?' + gp.toString();
-
-        localStorage.removeItem('pendingLead');
-      } catch(e){}
+      let lead; try { lead = JSON.parse(raw); } catch(e){ return; }
+      const who = lead.email || lead.whatsapp;
+      if(!who) return;
+      /* Ask the sheet script whether Razorpay really recorded this person's payment.
+         Nothing is marked Paid from this page - it only asks. */
+      let tries = 0;
+      function verify(){
+        tries++;
+        fetch(APPS_SCRIPT_URL + '?check=' + encodeURIComponent(who))
+          .then(r => r.json())
+          .then(j => {
+            if(j && j.paid){
+              try {
+                if(!sessionStorage.getItem('purchase_fired') && typeof fbq !== 'undefined'){
+                  fbq('track','Purchase',{ value: 99, currency: 'INR', content_name: 'BuildMyAiAdsCampaign Workshop - 18 Oct', content_type: 'product' });
+                  sessionStorage.setItem('purchase_fired','1');
+                }
+              } catch(e){}
+              localStorage.removeItem('pendingLead');
+            } else if(tries < 6){ setTimeout(verify, 5000); }
+          })
+          .catch(() => { if(tries < 6) setTimeout(verify, 5000); });
+      }
+      verify();
     })();
   </script>
 
