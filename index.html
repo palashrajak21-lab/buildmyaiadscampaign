@@ -762,23 +762,6 @@
       <!-- ── BELOW CTA — URGENCY ELEMENTS ── -->
       <div class="below-cta">
 
-        <!-- Viewer count -->
-        <div class="viewer-count">
-          <div class="viewer-dot"></div>
-          <span id="viewer-num">147</span>&nbsp;coaches are viewing this page right now
-        </div>
-
-        <!-- Live activity feed -->
-        <div class="activity-feed">
-          <div class="activity-item"><div class="act-dot"></div>🔥 Priya S. from Delhi just secured her seat · 2 min ago</div>
-          <div class="activity-item"><div class="act-dot"></div>🔥 Karan M. from Mumbai just registered · 5 min ago</div>
-          <div class="activity-item"><div class="act-dot"></div>🔥 Anjali R. from Bangalore just secured her seat · 8 min ago</div>
-          <div class="activity-item"><div class="act-dot"></div>🔥 Rohit V. from Pune just registered · 11 min ago</div>
-          <div class="activity-item"><div class="act-dot"></div>🔥 Meera K. from Hyderabad just secured her seat · 14 min ago</div>
-          <div class="activity-item"><div class="act-dot"></div>🔥 Vikas S. from Chennai just registered · 17 min ago</div>
-          <div class="activity-item"><div class="act-dot"></div>🔥 Sneha P. from Ahmedabad just secured her seat · 21 min ago</div>
-        </div>
-
         <!-- Payment proof strip -->
         <div class="payment-strip" style="display:none">
           <div class="payment-strip-title">
@@ -1636,17 +1619,6 @@
       const pf = document.getElementById('progress-fill');
       if(pf) setTimeout(()=>pf.classList.add('animated'),300);
     });
-
-    /* ─── VIEWER COUNT (subtle random fluctuation) ─── */
-    (function(){
-      const el = document.getElementById('viewer-num');
-      let base = 147;
-      setInterval(()=>{
-        const delta = Math.floor(Math.random()*5)-2;
-        base = Math.max(130, Math.min(180, base+delta));
-        el.textContent = base;
-      }, 4500);
-    })();
 
     /* ─── STICKY BAR (show after hero scrolls away) ─── */
     const stickyBar = document.getElementById('sticky-bar');
