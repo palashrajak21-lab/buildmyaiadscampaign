@@ -509,17 +509,6 @@
     @media(max-width:520px){.bonus-grid{grid-template-columns:1fr}}
     @media(max-width:768px){.bonus-cta-box{display:none}}
 
-    /* ═══════════════ TOAST NOTIFICATIONS ═══════════════ */
-    #toast-container{position:fixed;bottom:20px;left:20px;z-index:1000;display:flex;flex-direction:column;gap:8px;pointer-events:none}
-    .toast{background:var(--card);border:1px solid rgba(245,166,35,.3);border-radius:var(--r);padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--light);box-shadow:0 4px 20px rgba(0,0,0,.4);max-width:280px;transform:translateX(-320px);transition:transform .9s cubic-bezier(.25,.46,.45,.94),opacity .9s ease;opacity:0;pointer-events:none}
-    .toast.show{transform:translateX(0);opacity:1;pointer-events:auto}
-    .toast-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-d));color:#000;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .toast-text{flex:1}
-    .toast-name{font-weight:700;color:var(--white);margin-bottom:2px}
-    .toast-action{font-size:11px;color:var(--muted)}
-    .toast-close{background:none;border:none;color:var(--muted);font-size:16px;line-height:1;cursor:pointer;padding:0 0 0 8px;flex-shrink:0;opacity:.6;transition:opacity .2s}
-    .toast-close:hover{opacity:1}
-    @media(max-width:640px){#toast-container{bottom:20px;left:10px}}
 
     /* ═══════════════ MODAL ═══════════════ */
     #modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:20px}
@@ -645,8 +634,6 @@
     @media(max-width:900px){
       #footer{padding-bottom:132px}
       .sticky-btn{font-size:clamp(11px,3.5vw,14px);padding:14px 12px}
-      #toast-container{bottom:112px;left:10px}
-      .toast{max-width:calc(100vw - 92px)}
       .wa-float{bottom:108px;right:14px}
       .wa-btn{width:48px;height:48px}
       .wa-btn svg{width:27px;height:27px}
@@ -664,6 +651,14 @@
       .compare-table td:first-child{font-size:11.5px}
     }
   </style>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yu0lm340hf");
+  </script>
 </head>
 <body>
 
@@ -968,9 +963,9 @@
         <div class="shift-card"><span class="shift-icon">👑</span><strong>Own your data, your accounts, your strategy</strong> — zero agency dependency, forever.</div>
       </div>
       <div class="shift-total">
-        <p>Put this back into Meta ads every month</p>
-        <span class="savings">₹63,000–₹1,18,000</span>
-        <p>That's the money that compounds. That's what beats the big teams.</p>
+        <p>What you can save if you handle everything using Claude</p>
+        <span class="savings">₹63,000–₹1,18,000/month</span>
+        <p>Put it back into Meta ads. That's the money that compounds. That's what beats the big teams.</p>
       </div>
       <button class="btn btn-pulse" onclick="openModal('99')">I Want This System → ₹99</button>
     </div>
@@ -985,19 +980,19 @@
       <div class="agenda-grid">
         <div class="agenda-card">
           <span class="agenda-emoji">🔍</span>
-          <div class="agenda-hour">Hour 1 — 11:00 AM</div>
+          <div class="agenda-hour">Part 1 — 11:00 AM</div>
           <div class="agenda-title">The Agency Escape Audit</div>
           <p class="agenda-desc">Upload your current landing page, ad copy, and targeting into Claude. We'll audit where you're losing money, what your agency hasn't told you, and exactly what to fix first.</p>
         </div>
         <div class="agenda-card">
           <span class="agenda-emoji">🏗️</span>
-          <div class="agenda-hour">Hour 2 — 11:45 AM</div>
+          <div class="agenda-hour">Part 2 — 11:45 AM</div>
           <div class="agenda-title">Live Build: Landing Page + Campaign Launch</div>
           <p class="agenda-desc">Build a new high-converting landing page using Claude Code, connect it to Meta Ads Manager, and launch a real campaign live together inside the workshop.</p>
         </div>
         <div class="agenda-card">
           <span class="agenda-emoji">⚙️</span>
-          <div class="agenda-hour">Hour 3 — 12:30 PM</div>
+          <div class="agenda-hour">Part 3 — 12:30 PM</div>
           <div class="agenda-title">The BuildMyAiAdsCampaign System</div>
           <p class="agenda-desc">Set up your complete performance marketing OS inside Claude — ad testing framework, optimization prompts, weekly reporting templates. You leave with a system that runs itself.</p>
         </div>
@@ -1033,20 +1028,20 @@
           </div>
         </div>
 
-        <!-- Card 2 — Veer Narayana Kulkarni #2 (YouTube Short) -->
+        <!-- Card 4 — Manjunath Nagaraja (YouTube Short) -->
         <div class="testi-card">
           <div class="testi-video">
-            <div class="vid-poster has-thumb" id="poster-2" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t2.jpg) center 25%/cover no-repeat" onclick="playYT(this,'5iw3ZTnz0qc',true)">
-              <div class="vid-initials">VK</div>
+            <div class="vid-poster has-thumb" id="poster-4" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t4.jpg) center 25%/cover no-repeat" onclick="playYT(this,'8WjazOgJ8E0',true)">
+              <div class="vid-initials">MN</div>
               <div class="vid-play">▶</div>
-              <div class="vid-name-overlay">Veer Narayana Kulkarni</div>
+              <div class="vid-name-overlay">Manjunath Nagaraja</div>
             </div>
           </div>
           <div class="testi-body">
             <div class="testi-stars">★★★★★</div>
-            <div class="testi-name">Veer Narayana Kulkarni</div>
-            <div class="testi-role">Founder — Holistic Health Society</div>
-            <div class="testi-result">Redirected <strong>₹80,000/month</strong> from agency fees back into Meta ads. My webinar show-up rate doubled within the first 30 days.</div>
+            <div class="testi-name">Manjunath Nagaraja</div>
+            <div class="testi-role">CEO — Targethub Consulting</div>
+            <div class="testi-result">Was spending <strong>₹1.2L/month</strong> on agency + tools. Nitin's CAPF system gave me full control in 2 hours. Best investment I made for my business.</div>
           </div>
         </div>
 
@@ -1067,20 +1062,20 @@
           </div>
         </div>
 
-        <!-- Card 4 — Manjunath Nagaraja (YouTube Short) -->
+        <!-- Card 2 — Veer Narayana Kulkarni #2 (YouTube Short) -->
         <div class="testi-card">
           <div class="testi-video">
-            <div class="vid-poster has-thumb" id="poster-4" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t4.jpg) center 25%/cover no-repeat" onclick="playYT(this,'8WjazOgJ8E0',true)">
-              <div class="vid-initials">MN</div>
+            <div class="vid-poster has-thumb" id="poster-2" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t2.jpg) center 25%/cover no-repeat" onclick="playYT(this,'5iw3ZTnz0qc',true)">
+              <div class="vid-initials">VK</div>
               <div class="vid-play">▶</div>
-              <div class="vid-name-overlay">Manjunath Nagaraja</div>
+              <div class="vid-name-overlay">Veer Narayana Kulkarni</div>
             </div>
           </div>
           <div class="testi-body">
             <div class="testi-stars">★★★★★</div>
-            <div class="testi-name">Manjunath Nagaraja</div>
-            <div class="testi-role">CEO — Targethub Consulting</div>
-            <div class="testi-result">Was spending <strong>₹1.2L/month</strong> on agency + tools. Nitin's CAPF system gave me full control in 2 hours. Best investment I made for my business.</div>
+            <div class="testi-name">Veer Narayana Kulkarni</div>
+            <div class="testi-role">Founder — Holistic Health Society</div>
+            <div class="testi-result">Redirected <strong>₹80,000/month</strong> from agency fees back into Meta ads. My webinar show-up rate doubled within the first 30 days.</div>
           </div>
         </div>
 
@@ -1252,12 +1247,7 @@
               <img src="https://storagev2.files-vault.com/uploads/blacklabel-386/sub-account-86133/funnel_builder/landing_pages/content/148920/87af2e76d34728a2b2272c58ff99d43c-87af2e76d34728a2b2272c58ff99d43c-nitin-profile.webp" alt="Nitin Joshi" loading="lazy" />
             </div>
 
-            <!-- Slide 2 -->
-            <div class="img-slide">
-              <img src="https://storagev2.files-vault.com/uploads/blacklabel-386/sub-account-86133/1780742355-0fZWfNzjiK.webp" alt="Nitin Joshi" loading="lazy" />
-            </div>
-
-            <!-- Slide 3 — rotated 90° clockwise to correct orientation -->
+            <!-- Slide 2 — rotated 90° clockwise to correct orientation -->
             <div class="img-slide" style="overflow:hidden;position:relative">
               <img src="https://storagev2.files-vault.com/uploads/blacklabel-386/sub-account-86133/1780742031-3dlHsZ6x7H.webp" alt="Nitin Joshi" loading="lazy"
                 style="position:absolute;top:50%;left:50%;
@@ -1276,7 +1266,6 @@
         <div class="slider-dots" id="slider-dots">
           <div class="slider-dot active" onclick="slideTo(0)"></div>
           <div class="slider-dot" onclick="slideTo(1)"></div>
-          <div class="slider-dot" onclick="slideTo(2)"></div>
         </div>
         <div class="about-img-ring"></div>
       </div>
@@ -1289,7 +1278,7 @@
         <div class="about-stats">
           <div class="stat-item"><span class="stat-num">100+</span><span class="stat-label">Coaches Helped</span></div>
           <div class="stat-item"><span class="stat-num">₹2K</span><span class="stat-label">Monthly Tool Cost</span></div>
-          <div class="stat-item"><span class="stat-num">3 Hrs</span><span class="stat-label">Live Workshop</span></div>
+          <div class="stat-item"><span class="stat-num">2 Hrs</span><span class="stat-label">Live Workshop</span></div>
         </div>
         <div class="about-quote">"I've built complete funnels for coaches — landing pages, email, WhatsApp, Meta ads, CRM. I've seen what works and what quietly drains the budget. This workshop is everything I wish coaches knew from Day 1."</div>
       </div>
@@ -1526,12 +1515,12 @@
     <div class="container">
       <h2>Frequently Asked <span class="gold">Questions</span></h2>
       <div class="faq-list">
-        <div class="faq-item"><div class="faq-q">Do I need a Claude subscription before the workshop? <span class="faq-arrow">+</span></div><div class="faq-a">You don't need one before registering. But you will need the Claude Max plan (₹2,000/month) to implement everything live. We recommend signing up 1–2 days before.</div></div>
+        <div class="faq-item"><div class="faq-q">Do I need a Claude subscription before the workshop? <span class="faq-arrow">+</span></div><div class="faq-a">You don't need one before registering. But you will need the Claude Pro plan (₹2,000/month) to implement everything live. We recommend signing up 1–2 days before.</div></div>
         <div class="faq-item"><div class="faq-q">I've only done a few ad campaigns. Is this for me? <span class="faq-arrow">+</span></div><div class="faq-a">This is for coaches who have run at least one Meta ad campaign and have a working funnel. If you're completely new to ads, get your first campaign live first — the implementation will make much more sense with real context.</div></div>
         <div class="faq-item"><div class="faq-q">What if I'm still using an agency? Can I join and transition? <span class="faq-arrow">+</span></div><div class="faq-a">Absolutely — this is exactly who this workshop is built for. Many attendees join while still paying their agency, build their own system in parallel, and cancel the retainer within 30 days.</div></div>
         <div class="faq-item"><div class="faq-q">Will the recording be available if I miss the live session? <span class="faq-arrow">+</span></div><div class="faq-a">The recording is available as a paid add-on (₹299 extra) at the time of registration. We strongly recommend attending live — the campaign launch is interactive and significantly more valuable in real time.</div></div>
         <div class="faq-item"><div class="faq-q">What's the 110% money-back guarantee exactly? <span class="faq-arrow">+</span></div><div class="faq-a">Attend the complete 2-hour workshop and don't get full clarity on running your own Meta ads using Claude — we refund your full registration amount plus ₹25 extra. No questions asked. Just WhatsApp us.</div></div>
-        <div class="faq-item"><div class="faq-q">Do I need any technical skills or coding knowledge? <span class="faq-arrow">+</span></div><div class="faq-a">None. Claude Code does the technical heavy lifting. You give it instructions in plain Hindi or English and it builds. The only skill needed is clearly describing what you want — and we practice that in Hour 1.</div></div>
+        <div class="faq-item"><div class="faq-q">Do I need any technical skills or coding knowledge? <span class="faq-arrow">+</span></div><div class="faq-a">None. Claude Code does the technical heavy lifting. You give it instructions in plain Hindi or English and it builds. The only skill needed is clearly describing what you want — and we practice that in Part 1.</div></div>
       </div>
     </div>
   </section>
@@ -1573,8 +1562,6 @@
     </div>
   </div>
 
-  <!-- ═══ TOAST CONTAINER ═══ -->
-  <div id="toast-container"></div>
 
   <!-- ═══ MODAL FORM ═══ -->
   <div id="modal-overlay" onclick="handleOverlayClick(event)">
@@ -1697,43 +1684,6 @@
     function handleOverlayClick(e){if(e.target===document.getElementById('modal-overlay'))closeModal();}
     document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
-    /* ─── TOAST NOTIFICATIONS ─── */
-    const toastData=[
-      {initials:'PK',name:'Priya K.',city:'Delhi',action:'just secured her seat 🎉'},
-      {initials:'RM',name:'Rohit M.',city:'Mumbai',action:'just registered ⚡'},
-      {initials:'AS',name:'Anjali S.',city:'Bangalore',action:'just secured her seat 🎉'},
-      {initials:'VR',name:'Vikas R.',city:'Pune',action:'just registered ⚡'},
-      {initials:'MK',name:'Meera K.',city:'Hyderabad',action:'just secured her seat 🎉'},
-      {initials:'SK',name:'Suresh K.',city:'Chennai',action:'just registered ⚡'},
-      {initials:'NP',name:'Neha P.',city:'Ahmedabad',action:'just secured her seat 🎉'},
-      {initials:'AJ',name:'Amit J.',city:'Jaipur',action:'just registered ⚡'},
-    ];
-    let toastIdx=0;
-    function showToast(){
-      const d=toastData[toastIdx%toastData.length]; toastIdx++;
-      const container=document.getElementById('toast-container');
-      const el=document.createElement('div');
-      el.className='toast';
-      el.innerHTML=`<div class="toast-avatar">${d.initials}</div><div class="toast-text"><div class="toast-name">${d.name} · ${d.city}</div><div class="toast-action">${d.action}</div></div><button class="toast-close" aria-label="Close">✕</button>`;
-      container.appendChild(el);
-      let autoTimer;
-      function dismiss(){clearTimeout(autoTimer);el.classList.remove('show');setTimeout(()=>el.remove(),400);}
-      el.querySelector('.toast-close').addEventListener('click', dismiss);
-      /* swipe left to dismiss */
-      let startX=0;
-      el.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;},{passive:true});
-      el.addEventListener('touchmove',e=>{
-        const dx=e.touches[0].clientX-startX;
-        if(dx<0) el.style.transform='translateX('+Math.max(dx,-160)+'px)';
-      },{passive:true});
-      el.addEventListener('touchend',e=>{
-        const dx=e.changedTouches[0].clientX-startX;
-        if(dx<-60){dismiss();}else{el.style.transform='';}
-      },{passive:true});
-      requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add('show')));
-      autoTimer=setTimeout(dismiss,5000);
-    }
-    setTimeout(()=>{showToast();setInterval(showToast,10000);},5000);
 
     /* ─── FLYWHEEL NODES ─── */
     (function() {
