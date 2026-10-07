@@ -638,6 +638,30 @@
 
     .vid-poster.has-thumb .vid-initials{display:none}
     .vid-poster.has-thumb .vid-name-overlay{color:#fff;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+    /* ═══ MOBILE UI FIXES ═══ */
+    .hero-cta-mobile{display:none}
+    #modal-overlay.active ~ .wa-float{display:none}
+    @media(max-width:900px){
+      #footer{padding-bottom:132px}
+      .sticky-btn{font-size:clamp(11px,3.5vw,14px);padding:14px 12px}
+      #toast-container{bottom:112px;left:10px}
+      .toast{max-width:calc(100vw - 92px)}
+      .wa-float{bottom:108px;right:14px}
+      .wa-btn{width:48px;height:48px}
+      .wa-btn svg{width:27px;height:27px}
+    }
+    @media(max-width:768px){
+      .hero-cta-mobile{display:block;margin:0 0 24px}
+      .hero-cta-mobile .btn{width:100%;font-size:17px;padding:17px 20px}
+      .hero-live-line{margin-bottom:18px}
+      #modal input,#modal select{font-size:16px}
+      .compare-table-wrap{overflow-x:visible;margin:0;padding:0}
+      .compare-table{min-width:0;table-layout:fixed}
+      .compare-table th:first-child,.compare-table td:first-child{width:27%}
+      .compare-table td,.compare-table th,.compare-table tfoot td{padding:10px 6px;font-size:12px;overflow-wrap:anywhere}
+      .compare-table thead tr th{padding:12px 6px;font-size:12px}
+      .compare-table td:first-child{font-size:11.5px}
+    }
   </style>
 </head>
 <body>
@@ -682,6 +706,11 @@
       </div>
 
       <div class="hero-live-line"><span class="grad">with Claude,</span> Live, In 2 Hours.</div>
+
+      <!-- Mobile-only CTA: sits between the headline and the description -->
+      <div class="hero-cta-mobile">
+        <button class="btn btn-pulse" onclick="openModal('99')">Secure My Seat → Only ₹99</button>
+      </div>
 
       <p class="sub">
         The <strong>BuildMyAiAdsCampaign Workshop</strong> — India's Only Performance Marketing Workshop
@@ -1196,7 +1225,7 @@
       <p class="intro-text">See exactly what changes when you stop outsourcing your growth.</p>
       <div class="compare-table-wrap"><table class="compare-table">
         <thead>
-          <tr><th></th><th class="old">❌ The Old Way</th><th class="new">✅ BuildMyAiAdsCampaign</th></tr>
+          <tr><th></th><th class="old">❌ The Old Way</th><th class="new">✅ BuildMyAi<wbr>AdsCampaign</th></tr>
         </thead>
         <tbody>
           <tr><td>Monthly Marketing Cost</td><td>₹50,000–₹1,00,000/month</td><td>₹2,000/month Claude only</td></tr>
