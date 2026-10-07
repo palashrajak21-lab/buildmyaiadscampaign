@@ -867,12 +867,7 @@
         <div class="img-slider" id="about-slider">
           <div class="img-slider-track" id="slider-track">
 
-            <!-- Slide 1 — Main profile -->
-            <div class="img-slide">
-              <img src="https://storagev2.files-vault.com/uploads/blacklabel-386/sub-account-86133/funnel_builder/landing_pages/content/148920/87af2e76d34728a2b2272c58ff99d43c-87af2e76d34728a2b2272c58ff99d43c-nitin-profile.webp" alt="Nitin Joshi" loading="lazy" />
-            </div>
-
-            <!-- Slide 2 — rotated 90° clockwise to correct orientation -->
+            <!-- Single photo — rotated 90° clockwise to correct orientation -->
             <div class="img-slide" style="overflow:hidden;position:relative">
               <img src="https://storagev2.files-vault.com/uploads/blacklabel-386/sub-account-86133/1780742031-3dlHsZ6x7H.webp" alt="Nitin Joshi" loading="lazy"
                 style="position:absolute;top:50%;left:50%;
@@ -884,14 +879,8 @@
 
           </div>
 
-          <button class="slider-btn prev" onclick="slideMove(-1)">‹</button>
-          <button class="slider-btn next" onclick="slideMove(1)">›</button>
         </div>
 
-        <div class="slider-dots" id="slider-dots">
-          <div class="slider-dot active" onclick="slideTo(0)"></div>
-          <div class="slider-dot" onclick="slideTo(1)"></div>
-        </div>
         <div class="about-img-ring"></div>
       </div>
       <div>
@@ -1727,30 +1716,6 @@
         observer.observe(bar);
       });
     })();
-
-    /* ─── IMAGE SLIDER ─── */
-    let slideIndex = 0;
-    const totalSlides = 2;
-    let sliderTimer;
-
-    function slideTo(n){
-      slideIndex = (n + totalSlides) % totalSlides;
-      const track = document.getElementById('slider-track');
-      if(track) track.style.transform = `translateX(-${slideIndex * 100}%)`;
-      document.querySelectorAll('.slider-dot').forEach((d,i) =>
-        d.classList.toggle('active', i === slideIndex)
-      );
-    }
-
-    function slideMove(dir){ slideTo(slideIndex + dir); resetSliderTimer(); }
-
-    function resetSliderTimer(){
-      clearInterval(sliderTimer);
-      sliderTimer = setInterval(()=> slideTo(slideIndex + 1), 4000);
-    }
-
-    // Auto-play slider
-    sliderTimer = setInterval(()=> slideTo(slideIndex + 1), 4000);
 
     /* ─── SOURCE TRACKING ─── */
     (function(){
