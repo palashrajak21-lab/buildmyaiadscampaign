@@ -15,9 +15,16 @@
     document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1654354802513090');
     fbq('track', 'PageView');
+    // Fire Purchase once per browser session (same as Build My App thank-you page)
+    try {
+      if (!sessionStorage.getItem('purchase_fired')) {
+        fbq('track', 'Purchase', { value: 99, currency: 'INR', content_name: 'BuildMyAiAdsCampaign Workshop - 18 Oct', content_type: 'product' });
+        sessionStorage.setItem('purchase_fired', '1');
+      }
+    } catch (e) {}
   </script>
   <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1654354802513090&ev=PageView&noscript=1"/></noscript>
+    src="https://www.facebook.com/tr?id=1654354802513090&ev=Purchase&cd[value]=99&cd[currency]=INR&noscript=1"/></noscript>
 
   <!-- Microsoft Clarity -->
 
