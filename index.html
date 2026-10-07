@@ -1492,14 +1492,6 @@
           <button class="price-btn" style="opacity:.4;cursor:not-allowed" disabled>Unlocks after Regular sells out</button>
         </div>
       </div>
-      <div class="addon-card">
-        <div class="addon-checkbox">🎬</div>
-        <div class="addon-content">
-          <div class="addon-title">🎬 Add: Full Workshop Recording</div>
-          <div class="addon-desc">Can't attend live? Miss anything? Get lifetime access to the complete recording — rewatch anytime, forever.</div>
-        </div>
-        <div class="addon-price"><div class="new">+₹100</div><div class="old">₹299</div></div>
-      </div>
       <div class="guarantee-card">
         <div style="font-size:44px;flex-shrink:0">🛡️</div>
         <div>
@@ -1589,20 +1581,6 @@
           </div>
           <div class="field-error" id="phone-error">Please enter a valid 10-digit number</div>
         </div>
-        <label class="form-addon" for="f-addon" id="addon-label">
-          <input type="checkbox" id="f-addon" name="wantsRecording" />
-          <div class="addon-check-box"><span class="addon-check-tick">✓</span></div>
-          <div>
-            <div class="addon-eyebrow">⚡ ADD-ON — CHECK THIS BOX!</div>
-            <div class="addon-title">🎬 Get the Full Workshop Recording</div>
-            <div class="addon-desc">Can't attend live? Miss anything? Get lifetime access to the complete recording — rewatch anytime, forever.</div>
-            <div class="addon-price-row">
-              <span class="addon-price-main">Only ₹100 extra</span>
-              <span class="addon-price-orig">₹299</span>
-              <span class="addon-price-badge">67% OFF</span>
-            </div>
-          </div>
-        </label>
         <input type="hidden" id="f-price" name="price" value="99" />
         <button class="form-submit" type="submit" id="submit-btn">🔒 Pay ₹99 & Secure My Seat →</button>
         <p class="form-privacy">🔒 Your information is 100% secure. We never spam.</p>
@@ -1686,9 +1664,6 @@
       const p = price || '99';
       document.getElementById('f-price').value = p;
       // Reset checkbox + button text fresh each open
-      const cb = document.getElementById('f-addon');
-      cb.checked = false;
-      document.getElementById('addon-label').classList.remove('addon-checked');
       document.getElementById('submit-btn').textContent = '🔒 Pay ₹' + p + ' & Secure My Seat →';
       // Reset errors
       document.getElementById('phone-error').style.display = 'none';
@@ -1928,27 +1903,13 @@
       'recording':'https://rzp.io/rzp/bmaac-vip',
     };
 
-    /* ─── CHECKBOX → UPDATE CTA TEXT + CARD STATE ─── */
-    document.getElementById('f-addon').addEventListener('change', function(){
-      const btn   = document.getElementById('submit-btn');
-      const label = document.getElementById('addon-label');
-      const base  = parseInt(document.getElementById('f-price').value) || 99;
-      label.classList.toggle('addon-checked', this.checked);
-      btn.textContent = this.checked
-        ? '🔒 Pay ₹' + (base + 100) + ' & Get Recording →'
-        : '🔒 Pay ₹' + base + ' & Secure My Seat →';
-    });
-
     /* ─── RE-ENABLE BUTTON ON BACK NAVIGATION ─── */
     window.addEventListener('pageshow', function(e){
       const btn = document.getElementById('submit-btn');
       if(btn.disabled){
         btn.disabled = false;
         const base = parseInt(document.getElementById('f-price').value) || 99;
-        const checked = document.getElementById('f-addon').checked;
-        btn.textContent = checked
-          ? '🔒 Pay ₹' + (base + 100) + ' & Get Recording →'
-          : '🔒 Pay ₹' + base + ' & Secure My Seat →';
+        btn.textContent = '🔒 Pay ₹' + base + ' & Secure My Seat →';
       }
     });
 
@@ -1979,7 +1940,7 @@
 
       const fd             = new FormData(document.getElementById('reg-form'));
       const basePrice      = parseInt(fd.get('price')) || 99;
-      const wantsRecording = document.getElementById('f-addon').checked;
+      const wantsRecording = false;
       const actualPrice    = String(wantsRecording ? basePrice + 100 : basePrice);
       const countryCode    = document.getElementById('f-country-code').value;
       const fullPhone      = countryCode + phoneDigits;
