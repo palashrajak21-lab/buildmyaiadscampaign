@@ -251,6 +251,7 @@
     /* ── Testimonial video cards ── */
     .testi-video{position:relative;width:100%;padding-top:56.25%;background:#000;overflow:hidden}
     .testi-video iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+    .testi-video.is-short{padding-top:177.78%}
     .testi-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
     /* Custom HLS poster overlay — shown until play */
     .vid-poster{
@@ -1015,11 +1016,10 @@
 
       <div class="testi-grid">
 
-        <!-- Card 1 — Veer Narayana Kulkarni #1 (HLS) -->
+        <!-- Card 1 — Veer Narayana Kulkarni #1 (YouTube Short) -->
         <div class="testi-card">
           <div class="testi-video">
-            <video id="vid-1" controls playsinline preload="none"></video>
-            <div class="vid-poster has-thumb" id="poster-1" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t1.jpg) center 25%/cover no-repeat" onclick="playHLS('vid-1','https://stream.files-vault.com/20e4831d-625f-42da-beab-5530d496fb56/playlist.m3u8','poster-1')">
+            <div class="vid-poster has-thumb" id="poster-1" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t1.jpg) center 25%/cover no-repeat" onclick="playYT(this,'FcOdbFjians',true)">
               <div class="vid-initials">VK</div>
               <div class="vid-play">▶</div>
               <div class="vid-name-overlay">Veer Narayana Kulkarni</div>
@@ -1033,11 +1033,10 @@
           </div>
         </div>
 
-        <!-- Card 2 — Veer Narayana Kulkarni #2 (HLS) -->
+        <!-- Card 2 — Veer Narayana Kulkarni #2 (YouTube Short) -->
         <div class="testi-card">
           <div class="testi-video">
-            <video id="vid-2" controls playsinline preload="none"></video>
-            <div class="vid-poster has-thumb" id="poster-2" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t2.jpg) center 25%/cover no-repeat" onclick="playHLS('vid-2','https://stream.files-vault.com/c71abcac-3d7d-4a95-9f39-3a99f91cd316/playlist.m3u8','poster-2')">
+            <div class="vid-poster has-thumb" id="poster-2" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t2.jpg) center 25%/cover no-repeat" onclick="playYT(this,'5iw3ZTnz0qc',true)">
               <div class="vid-initials">VK</div>
               <div class="vid-play">▶</div>
               <div class="vid-name-overlay">Veer Narayana Kulkarni</div>
@@ -1051,11 +1050,10 @@
           </div>
         </div>
 
-        <!-- Card 3 — Harish (HLS) -->
+        <!-- Card 3 — Harish (YouTube Short) -->
         <div class="testi-card">
           <div class="testi-video">
-            <video id="vid-3" controls playsinline preload="none"></video>
-            <div class="vid-poster has-thumb" id="poster-3" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t3.jpg) center 25%/cover no-repeat" onclick="playHLS('vid-3','https://stream.files-vault.com/3efdcfef-5073-4878-a771-da5bbe5c4705/playlist.m3u8','poster-3')">
+            <div class="vid-poster has-thumb" id="poster-3" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t3.jpg) center 25%/cover no-repeat" onclick="playYT(this,'6oB8oE7lpyQ',true)">
               <div class="vid-initials">H</div>
               <div class="vid-play">▶</div>
               <div class="vid-name-overlay">Harish</div>
@@ -1069,11 +1067,10 @@
           </div>
         </div>
 
-        <!-- Card 4 — Manjunath Nagaraja (HLS) -->
+        <!-- Card 4 — Manjunath Nagaraja (YouTube Short) -->
         <div class="testi-card">
           <div class="testi-video">
-            <video id="vid-4" controls playsinline preload="none"></video>
-            <div class="vid-poster has-thumb" id="poster-4" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t4.jpg) center 25%/cover no-repeat" onclick="playHLS('vid-4','https://stream.files-vault.com/7ac23b7c-4069-4e16-aadc-0423a561288f/playlist.m3u8','poster-4')">
+            <div class="vid-poster has-thumb" id="poster-4" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t4.jpg) center 25%/cover no-repeat" onclick="playYT(this,'8WjazOgJ8E0',true)">
               <div class="vid-initials">MN</div>
               <div class="vid-play">▶</div>
               <div class="vid-name-overlay">Manjunath Nagaraja</div>
@@ -1087,11 +1084,10 @@
           </div>
         </div>
 
-        <!-- Card 5 — Harry Ranveer (HLS) — DISABLED -->
-        <div class="testi-card" style="display:none">
+        <!-- Card 5 — Harry Ranveer (YouTube) -->
+        <div class="testi-card">
           <div class="testi-video">
-            <video id="vid-5" controls playsinline preload="none"></video>
-            <div class="vid-poster has-thumb" id="poster-5" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t5.jpg) center 25%/cover no-repeat" onclick="playHLS('vid-5','https://stream.files-vault.com/a454b72c-5dd8-426e-94e4-2453f5c3973f/playlist.m3u8','poster-5')">
+            <div class="vid-poster has-thumb" id="poster-5" style="background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55)),url(assets/thumbs/t5.jpg) center 25%/cover no-repeat" onclick="playYT(this,'pTiaHr_NVC4',false)">
               <div class="vid-initials">HR</div>
               <div class="vid-play">▶</div>
               <div class="vid-name-overlay">Harry Ranveer</div>
@@ -1101,7 +1097,7 @@
             <div class="testi-stars">★★★★★</div>
             <div class="testi-name">Harry Ranveer</div>
             <div class="testi-role">Co-founder — Visual Media Pro &amp; AI Filmmakers</div>
-            <div class="testi-result">Launched <strong>3 live Meta campaigns myself</strong> the same day as the workshop. Zero agency dependency. The live build session was extraordinary.</div>
+            <div class="testi-result">Coach and trainer in AI filmmaking. Nitin built the <strong>end-to-end AI automation</strong> behind his coaching business.</div>
           </div>
         </div>
 
@@ -1835,23 +1831,16 @@
     }
 
     /* ─── HLS VIDEO PLAYER ─── */
-    function playHLS(videoId, src, posterId) {
-      var video   = document.getElementById(videoId);
-      var poster  = document.getElementById(posterId);
-
-      // Hide poster
+    function playYT(poster, id, isShort) {
+      var box = poster.parentNode;
+      if (isShort) box.classList.add('is-short');
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.title = poster.querySelector('.vid-name-overlay').textContent + ' testimonial';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen = true;
+      box.appendChild(f);
       poster.classList.add('hidden');
-
-      if (Hls.isSupported()) {
-        var hls = new Hls({ startLevel: -1 });
-        hls.loadSource(src);
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play(); });
-      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        // Safari native HLS
-        video.src = src;
-        video.play();
-      }
     }
 
     /* ─── SEAT BAR ANIMATION — fires every time bar scrolls into view ─── */
