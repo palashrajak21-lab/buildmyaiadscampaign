@@ -6,8 +6,8 @@
   (function(){
     var path = location.pathname.toLowerCase();
     var s = location.search;
-    var paid = /razorpay|payment_id|pay_/i.test(s) || /success|thank|paid|payment|confirm|welcome|registered/.test(path);
-    location.replace((paid ? '/success.html' : '/') + s);
+    var paid = /razorpay|payment_id|pay_/i.test(s) || (/razorpay\.com/i.test(document.referrer) && /success|thank|paid|payment|confirm|welcome|registered/.test(path));
+    location.replace((paid ? '/thank-you-tztd775fxg.html' : '/') + s);
   })();
 </script></head>
 <body><p>Taking you to the right page… <a href="/">Click here if nothing happens</a></p></body></html>
