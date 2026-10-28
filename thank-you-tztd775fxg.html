@@ -13,7 +13,20 @@
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
     document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1654354802513090');
+    /* Advanced matching: the buyer's form details (saved on the landing page) help Meta match the Purchase. The pixel hashes them before sending. */
+    var am = {};
+    try {
+      var pl = JSON.parse(localStorage.getItem('pendingLead') || 'null');
+      if (pl) {
+        if (pl.email) am.em = String(pl.email).trim().toLowerCase();
+        if (pl.whatsapp) am.ph = String(pl.whatsapp).replace(/\D/g, '');
+        var nm = String(pl.name || '').trim().toLowerCase().split(/\s+/);
+        if (nm[0]) am.fn = nm[0];
+        if (nm.length > 1) am.ln = nm[nm.length - 1];
+        if (am.em || am.ph) am.external_id = am.em || am.ph;
+      }
+    } catch (e) {}
+    fbq('init', '1654354802513090', am);
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
@@ -371,7 +384,7 @@
             if(j && j.paid){
               try {
                 if(!sessionStorage.getItem('purchase_fired') && typeof fbq !== 'undefined'){
-                  fbq('track','Purchase',{ value: 99, currency: 'INR', content_name: 'BuildMyAiAdsCampaign Workshop - 1 Nov', content_type: 'product' });
+                  fbq('track','Purchase',{ value: (j.amount > 0 ? j.amount : 99), currency: 'INR', content_name: 'BuildMyAiAdsCampaign Workshop - 1 Nov', content_type: 'product' });
                   sessionStorage.setItem('purchase_fired','1');
                 }
               } catch(e){}
