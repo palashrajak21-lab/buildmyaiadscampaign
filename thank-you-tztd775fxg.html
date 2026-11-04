@@ -223,19 +223,12 @@
     /* ─── WHATSAPP CTA ─── */
     /* ─── VIDEO ─── */
     .video-block { margin: 0 auto 36px; }
-    .step-label {
-      display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--gold); background: rgba(245,166,35,0.1);
-      border: 1px solid rgba(245,166,35,0.35); border-radius: 999px; padding: 6px 14px; margin-bottom: 10px;
-    }
-    .video-title { font-size: 17px; font-weight: 700; color: #eee; margin-bottom: 14px; }
     .video-frame {
       position: relative; width: 100%; padding-bottom: 74.95%; /* Loom video is 1106 x 829 */
       border-radius: 16px; overflow: hidden; background: #000;
       border: 2px solid rgba(245,166,35,0.55); box-shadow: 0 10px 40px rgba(245,166,35,0.18);
     }
     .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-    .video-len { font-size: 13px; color: var(--muted); margin-top: 10px; }
 
     .wa-cta-card {
       background: rgba(37,211,102,0.08);
@@ -286,17 +279,13 @@
       .detail-row { font-size: 14px; gap: 10px; }
       .step-title { font-size: 14px; }
     }
-    /* Phones: short top — You're In! → video → WhatsApp button → rest */
-    @media (max-width: 767px) {
-      .hero { padding: 28px 16px 40px; }
-      .success-icon, .hero h1 br, .hero h1 .gold, .hero .sub,
-      .step-label, .video-title, .video-len,
-      .wa-cta-card .wa-icon, .wa-cta-card .wa-title, .wa-cta-card .wa-desc { display: none; }
-      .hero h1 { margin-bottom: 18px; }
-      .video-block { margin-bottom: 16px; }
-      .wa-cta-card { background: none; border: 0; padding: 0; }
-      .btn-wa { display: flex; justify-content: center; width: 100%; font-size: 16px; padding: 16px 20px; }
-    }
+    /* Short top on every screen: Congratulations, You're In! → video → WhatsApp button → rest */
+    .hero { padding-top: 36px; }
+    .hero h1 { margin-bottom: 22px; }
+    .video-block { margin-bottom: 18px; }
+    .wa-cta { margin-bottom: 28px; }
+    .wa-cta .btn-wa { display: flex; justify-content: center; width: 100%; font-size: 17px; padding: 17px 20px; }
+    @media (max-width: 767px) { .hero { padding: 28px 16px 40px; } .wa-cta .btn-wa { font-size: 16px; padding: 16px 20px; } }
   </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -318,32 +307,18 @@
   <div class="hero">
     <div class="hero-inner">
 
-      <div class="success-icon">🎉</div>
-
-      <h1>You're In!<br/><span class="gold">See You on 15th November.</span></h1>
-
-      <p class="sub">
-        Your seat is confirmed for the <strong>BuildMyAiAdsCampaign Live Workshop.</strong>
-      </p>
+      <h1>Congratulations,<br/><span class="gold">You're In!</span></h1>
 
       <!-- Welcome video: watch first -->
       <div class="video-block">
-        <div class="step-label">Step 1 · Watch This First</div>
-        <div class="video-title">A 90-second message from Nitin</div>
         <div class="video-frame">
           <iframe src="https://www.loom.com/embed/c75f6e87380f46c295bc1116f13bc910?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
             title="Congratulations on taking action" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="eager"></iframe>
         </div>
-        <div class="video-len">⏱ 1 min 35 sec</div>
       </div>
 
-      <div class="step-label">Step 2 · Join The WhatsApp Group</div>
-
       <!-- WhatsApp CTA -->
-      <div class="wa-cta-card">
-        <div class="wa-icon">📱</div>
-        <div class="wa-title">Join the WhatsApp Group — Right Now</div>
-        <div class="wa-desc">Your Zoom link, prep material &amp; reminders for 15th November come here first.<br/>Takes 10 seconds. Don't miss anything.</div>
+      <div class="wa-cta">
         <a class="btn-wa" href="https://chat.whatsapp.com/EiFN6rTTZ682xLQCEBTxNU" target="_blank">Join WhatsApp Group Now →</a>
       </div>
 
