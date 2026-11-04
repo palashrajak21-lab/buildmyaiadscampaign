@@ -286,8 +286,9 @@
     .wa-cta { margin-bottom: 28px; }
     .wa-cta .btn-wa { display: flex; justify-content: center; width: 100%; font-size: 17px; padding: 17px 20px; }
     @media (max-width: 767px) { .hero { padding: 28px 16px 40px; } .wa-cta .btn-wa { font-size: 16px; padding: 16px 20px; } }
-    /* Phones: headline on one line */
-    @media (max-width: 767px) { .hero h1 { font-size: 6.4vw; letter-spacing: -0.5px; white-space: nowrap; } .hero h1 br { display: none; } .hero h1 .gold::before { content: ' '; } }
+    /* Headline on one line on every screen */
+    .hero h1 { white-space: nowrap; font-size: clamp(22px, 6.4vw, 44px); letter-spacing: -1px; }
+    @media (max-width: 767px) { .hero h1 { letter-spacing: -0.5px; } }
   </style>
   <!-- Microsoft Clarity -->
   <script type="text/javascript">
@@ -309,7 +310,7 @@
   <div class="hero">
     <div class="hero-inner">
 
-      <h1>Congratulations,<br/><span class="gold">You're In!</span></h1>
+      <h1>Congratulations, <span class="gold">You're In!</span></h1>
 
       <!-- Welcome video: watch first -->
       <div class="video-block">
