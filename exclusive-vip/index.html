@@ -663,7 +663,13 @@ set('#pop-title',`Don’t miss the ${C.price} price`); set('#pop-sub',C.priceRis
 
 /* added: hero video, host section without photo, custom band text */
 if(C.video){const p=$('#hero-portrait');p.classList.add('vid');p.closest('.visual').classList.add('wide');
-  p.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${C.video}?rel=0&modestbranding=1&playsinline=1" title="${C.videoTitle||'Video'}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`}
+  p.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${C.video}?rel=0&modestbranding=1&playsinline=1&autoplay=1&mute=1&enablejsapi=1" title="${C.videoTitle||'Video'}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`}
+/* added 22 Nov: video autoplays muted; one tap unmutes */
+if(C.video){const p=$('#hero-portrait'),f=p.querySelector('iframe');if(f){p.style.position='relative';
+  const b=d.createElement('button');b.type='button';b.setAttribute('aria-label','Unmute video');b.textContent='🔊 Tap to unmute';
+  b.style.cssText='position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:3;background:var(--brand);color:var(--brand-ink);border:0;border-radius:999px;padding:10px 18px;font:800 14px var(--f-body);cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.5)';
+  b.addEventListener('click',()=>{['unMute','playVideo'].forEach(fn=>f.contentWindow.postMessage(JSON.stringify({event:'command',func:fn,args:[]}),'*'));b.remove()});
+  p.appendChild(b)}}
 if(!C.host.photo){$('#host-portrait').remove();const h=$('.host');h.style.gridTemplateColumns='1fr';h.style.maxWidth='860px';h.style.margin='0 auto'}
 if(C.bandSub) set('#band-sub',C.bandSub);
 if(C.mrp==='') $$('.p-mrp').forEach(e=>e.remove());
