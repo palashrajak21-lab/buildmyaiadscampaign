@@ -231,6 +231,10 @@ svg.i{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-widt
 .hstats span{font-size:13.5px;color:var(--muted)}
 
 /* ============ BONUSES ============ */
+.imgone{max-width:1100px;margin:0 auto 56px}
+.imgone h2{text-align:center;margin-bottom:28px}
+.imgone figure{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--brand-line);background:#000;box-shadow:var(--sh);aspect-ratio:1672/941}
+.imgone figure img{width:100%;height:100%;object-fit:cover}
 .imgrid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .imgrid figure{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--brand-line);background:#000;box-shadow:var(--sh);aspect-ratio:1672/941}
 .imgrid figure img{width:100%;height:100%;object-fit:cover}
@@ -373,7 +377,7 @@ const CONFIG = {
   eventBadge: "60-day live cohort · Selection by call",
   headline: "Run your own AI ads, funnels & automation in <hl>60 days</hl>",
   subheadline: "For coaches, consultants and business owners done depending on agencies. Book a ₹999 qualification call with Nitin. Not selected? Full refund.",
-  facts: [ ["rupee","Call fee","₹999, adjusted"], ["users","Cohort fee","₹14,999 (usually ₹75,000)"], ["calendar","Duration","60 days · 9 sessions"], ["video","Live classes","Saturday & Sunday"] ],
+  facts: [ ["rupee","Call fee","₹999, adjusted"], ["users","Cohort fee","₹14,999 (usually ₹75,000)"], ["calendar","Duration","60 days · 9 sessions"], ["video","Format","Hybrid · LMS + live classes"] ],
   proofLine: [],
   avatars: [],
   heroVisual: null,
@@ -442,7 +446,7 @@ const CONFIG = {
           ["Is the ₹999 adjusted in the cohort fee?","Yes. If you're selected, the ₹999 is adjusted against the ₹14,999 cohort fee and you pay only the balance to join."],
           ["What if I'm not selected?","You get a full refund of your ₹999."],
           ["How much is the cohort?","₹14,999 for the full 60 days. The program is usually priced at ₹75,000."],
-          ["How does the program run?","You learn on live classes every Saturday and Sunday, implement the same steps on weekdays, and come prepared for the next week. All resources are inside your course on the LMS."],
+          ["How does the program run?","It's a hybrid program. You get the LMS with all lessons and resources as soon as you join, attend live classes on Saturday and Sunday from 8–10 PM IST, implement on weekdays, and come prepared for the next session."],
           ["When do the bonuses unlock?","The CRM, workshops, Claude subscription and community are included from the start. The Andromeda course and the WhatsApp and ChatGPT ads challenges unlock after Week 4."],
           ["Why only 5 seats per batch?","So Nitin and the team can stay accountable to every member through all 60 days."] ],
   finalTitle: "Stop paying the agency. Start owning the game.",
@@ -456,6 +460,9 @@ const CONFIG = {
   // ---- images (added 22 Nov): shown instead of the text cards; text stays as alt text ----
   weekImages: ["img/week-1.webp","img/week-2.webp","img/week-3.webp","img/week-4.webp","img/week-5.webp","img/week-6.webp","img/week-7.webp","img/week-8.webp","img/week-9.webp"],
   bonusImages: ["img/bonus-1-crm.webp","img/bonus-2-andromeda.webp","img/bonus-3-workshops.webp","img/bonus-4-claude.webp","img/bonus-5-community.webp","img/bonus-6-whatsapp-ads.webp","img/bonus-7-chatgpt-ads.webp"],
+  outcomeImage: "img/after-60-days.webp",
+  extraImages: [ ["How the program works","img/how-it-works.webp","How the program works: 1. Access the LMS with all resources. 2. Learn on live classes, Saturday and Sunday. 3. Implement on weekdays, Monday to Friday. 4. Get ready for the next session. Repeat every week."],
+                 ["Your session calendar","img/session-calendar.webp","Session calendar, 8 PM to 10 PM IST: Session 0 orientation, Sessions 1 to 4, a bonus week, then Sessions 5 to 9 and graduation."] ],
   exitPopup: true,
   recentSignups: []
 };
@@ -670,6 +677,15 @@ if(C.weekImages&&C.weekImages.length===C.agenda.length){const g=$('#agenda');g.c
   g.innerHTML=C.agenda.map((a,i)=>`<figure class="reveal"><img src="${C.weekImages[i]}" alt="${strip(a[0]+': '+a[1]+'. '+a[2].join('. '))}" loading="lazy" decoding="async" width="1672" height="941"></figure>`).join('')}
 if(C.bonusImages&&C.bonusImages.length===C.bonuses.length){const g=$('#bonuses');g.className='imgrid';
   g.innerHTML=C.bonuses.map((b,i)=>`<figure class="reveal"><img src="${C.bonusImages[i]}" alt="${strip('Bonus '+(i+1)+': '+b[0]+'. '+b[1]+' '+(/^₹/.test(b[2])?'Worth '+b[2]+', free':b[2]))}" loading="lazy" decoding="async" width="1672" height="941"></figure>`).join('')}
+
+/* added 22 Nov: outcome image replaces the 6 learn cards; "how it works" and calendar images before the weeks */
+if(C.outcomeImage){const g=$('#learn');g.className='imgone';g.style.marginBottom='56px';
+  g.innerHTML=`<figure class="reveal"><img src="${C.outcomeImage}" alt="${strip('Where you will be in 60 days: '+C.learn.map(l=>l[1]+'. '+l[2]).join(' '))}" loading="lazy" decoding="async" width="1672" height="941"></figure>`}
+if(C.extraImages&&C.extraImages.length){const ag=$('#agenda');
+  C.extraImages.forEach(x=>{const d=document.createElement('div');d.className='imgone';
+    d.innerHTML=`<h2 class="reveal">${x[0]}</h2><figure class="reveal"><img src="${x[1]}" alt="${x[2]}" loading="lazy" decoding="async" width="1672" height="941"></figure>`;
+    ag.parentNode.insertBefore(d,ag)});
+  ag.style.marginTop='0'}
 
 /* countdown (skipped when there is no real deadline: show the seat limit instead) */
 if(!C.deadline){
