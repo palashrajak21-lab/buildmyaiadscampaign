@@ -231,6 +231,11 @@ svg.i{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-widt
 .hstats span{font-size:13.5px;color:var(--muted)}
 
 /* ============ BONUSES ============ */
+.imgrid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.imgrid figure{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--brand-line);background:#000;box-shadow:var(--sh);aspect-ratio:1672/941}
+.imgrid figure img{width:100%;height:100%;object-fit:cover}
+.imgrid figure:last-child:nth-child(odd){grid-column:1/-1;max-width:calc(50% - 10px);justify-self:center;width:100%}
+@media (max-width:720px){.imgrid{grid-template-columns:1fr;gap:14px}.imgrid figure:last-child:nth-child(odd){max-width:none}}
 .bonus{position:relative;border:1.5px dashed var(--brand-line);background:var(--surface);border-radius:var(--r);padding:26px}
 .bonus .bn{display:inline-block;background:var(--brand);color:var(--brand-ink);font-weight:800;font-size:13px;padding:5px 10px;border-radius:8px;margin-bottom:14px}
 .bonus p{color:var(--muted);margin-top:8px;font-size:16px}
@@ -421,7 +426,7 @@ const CONFIG = {
                   {quote:"As an AI consultant I now recommend Nitin's CAPF strategy to every coaching client. 10x ROI on the very next webinar after implementation.", name:"Gaurav Guru", meta:"AI Consultant", result:"10x ROI"},
                   {quote:"Coach and trainer in AI filmmaking. Nitin built the end-to-end AI automation behind his coaching business.", name:"Harry Ranveer", meta:"Co-founder, Visual Media Pro & AI Filmmakers"},
                   {quote:"The way Nitin understands automation is next level.", name:"Swastik Nandakumar", meta:"Peak Performance Coach & Business Growth Expert"} ],
-  bonuses: [ ["CRM Tool Access","Manage and automate your whole business in one place.","₹60,000"],
+  bonuses: [ ["CRM Tool Access","Manage and automate your whole business in one place.","₹1,00,000"],
              ["Andromeda Meta Course Bundle","30+ lectures to master Meta ads, with 1 year of access. Unlocks after Week 4.","₹30,000"],
              ["Workshop Access","Every upcoming workshop, including the AEO workshop, for 1 year.","₹10,000"],
              ["Claude Subscription (1 month)","Your AI assistant to build, write and launch during the program.","₹2,300"],
@@ -429,8 +434,8 @@ const CONFIG = {
              ["7-Day WhatsApp Ads Challenge","Launch and run WhatsApp ads in one week. Unlocks after Week 4.","Priceless"],
              ["7-Day ChatGPT Ads Challenge","Run your first ads inside ChatGPT in one week. Unlocks after Week 4.","Priceless"] ],
   bonusNote: "All bonuses are included for every member selected into the cohort.",
-  stack: [ ["60-day live cohort: 9 live sessions + orientation","₹75,000"], ["CRM Tool Access","₹60,000"], ["Andromeda Meta Course Bundle","₹30,000"], ["Workshop Access (1 year)","₹10,000"], ["Claude Subscription (1 month)","₹2,300"], ["1MAP Club community (1 year)","₹1,50,000"], ["7-Day WhatsApp & ChatGPT Ads Challenges","Priceless"] ],
-  stackTotal: "₹3,27,300+",
+  stack: [ ["60-day live cohort: 9 live sessions + orientation","₹75,000"], ["CRM Tool Access","₹1,00,000"], ["Andromeda Meta Course Bundle","₹30,000"], ["Workshop Access (1 year)","₹10,000"], ["Claude Subscription (1 month)","₹2,300"], ["1MAP Club community (1 year)","₹1,50,000"], ["7-Day WhatsApp & ChatGPT Ads Challenges","Priceless"] ],
+  stackTotal: "₹3,67,300+",
   guarantee: ["100% refund", "If you're not selected after the qualification call, your ₹999 is refunded in full. If you are selected, the ₹999 is adjusted against your ₹14,999 cohort fee."],
   payMethods: "Secure checkout by Razorpay · UPI · Cards · Net banking",
   faqs: [ ["What happens after I pay ₹999?","Nitin and a team member get on a qualification call with you to understand your business and check if the cohort is the right fit."],
@@ -446,8 +451,11 @@ const CONFIG = {
             disclaimer:"Results vary by person and business; testimonials are individual experiences, not guarantees. This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is not endorsed by Facebook in any way. FACEBOOK is a trademark of META PLATFORMS, Inc." },
   packs: [],
   labels: { fit:"Is this cohort for you?", proof:"What founders and coaches say", band:"Only 5 seats per batch", host:"Your team",
-            bonusTag:"Bonuses worth ₹2,52,300+", bonus:"Selected members also get", offer:"Everything you get if selected", pass:"The complete cohort",
+            bonusTag:"Bonuses worth ₹2,92,300+", bonus:"Selected members also get", offer:"Everything you get if selected", pass:"The complete cohort",
             packs:"", faq:"Questions, answered", micro:["Secure payment via Razorpay","Full refund if not selected"] },
+  // ---- images (added 22 Nov): shown instead of the text cards; text stays as alt text ----
+  weekImages: ["img/week-1.webp","img/week-2.webp","img/week-3.webp","img/week-4.webp","img/week-5.webp","img/week-6.webp","img/week-7.webp","img/week-8.webp","img/week-9.webp"],
+  bonusImages: ["img/bonus-1-crm.webp","img/bonus-2-andromeda.webp","img/bonus-3-workshops.webp","img/bonus-4-claude.webp","img/bonus-5-community.webp","img/bonus-6-whatsapp-ads.webp","img/bonus-7-chatgpt-ads.webp"],
   exitPopup: true,
   recentSignups: []
 };
@@ -655,6 +663,13 @@ if(C.mrp==='') $$('.p-mrp').forEach(e=>e.remove());
 if(!C.offLabel) hide('#save',1);
 set('#pop-title','Only 5 seats per batch');
 set('#pop-sub','Book your ₹999 qualification call now. Full refund if you’re not selected.');
+
+/* added 22 Nov: week and bonus images replace the text cards (text kept as alt text) */
+const strip=h=>h.replace(/<[^>]+>/g,'');
+if(C.weekImages&&C.weekImages.length===C.agenda.length){const g=$('#agenda');g.className='imgrid';
+  g.innerHTML=C.agenda.map((a,i)=>`<figure class="reveal"><img src="${C.weekImages[i]}" alt="${strip(a[0]+': '+a[1]+'. '+a[2].join('. '))}" loading="lazy" decoding="async" width="1672" height="941"></figure>`).join('')}
+if(C.bonusImages&&C.bonusImages.length===C.bonuses.length){const g=$('#bonuses');g.className='imgrid';
+  g.innerHTML=C.bonuses.map((b,i)=>`<figure class="reveal"><img src="${C.bonusImages[i]}" alt="${strip('Bonus '+(i+1)+': '+b[0]+'. '+b[1]+' '+(/^₹/.test(b[2])?'Worth '+b[2]+', free':b[2]))}" loading="lazy" decoding="async" width="1672" height="941"></figure>`).join('')}
 
 /* countdown (skipped when there is no real deadline: show the seat limit instead) */
 if(!C.deadline){
